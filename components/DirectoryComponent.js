@@ -27,6 +27,7 @@ class Directory extends Component{
                 />
             );
     };
+    
     return (
         <FlatList 
             data={this.state.campsites}
