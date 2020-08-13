@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, ScrollView } from 'react-native';
-import { Card } from 'react-native-elements';
+import { Text, ScrollView } from 'react-native';
+import { Card} from 'react-native-elements';
 
 
 class Contact extends Component {
@@ -10,6 +10,7 @@ class Contact extends Component {
     render() {
         return (
             <ScrollView>
+   
                 <Card 
                    title="Contact Information"
                    wrapperStyle={{margin:20}}>
@@ -19,11 +20,11 @@ class Contact extends Component {
 
                    <Text>Phone:1-206-555-1234</Text>
                    <Text>Email: campsite@nucamp.co</Text>
-
                 </Card>
             </ScrollView>
         );
     }
 }
+
 
 export default Contact;
