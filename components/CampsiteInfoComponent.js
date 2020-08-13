@@ -12,9 +12,10 @@ const mapStateToProps = state => {
         favorites: state.favorites
     };
 };
-const mapDispathToProps ={
-    postFavorite: campsiteId =(postFavorite(campsiteId))
+const mapDispatchToProps = {
+    postFavorite: campsiteId => (postFavorite(campsiteId))
 };
+
 
 function RenderCampsite(props) {   
     const {campsite} = props;
@@ -89,4 +90,4 @@ class CampsiteInfo extends Component{
     }
 }
 
-export default connect(mapStateToProps, mapDispathToProps)(CampsiteInfo);
+export default connect(mapStateToProps, mapDispatchToProps)(CampsiteInfo);
