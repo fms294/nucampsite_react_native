@@ -8,7 +8,6 @@ import {postFavorite} from '../redux/ActionCreators';
 import {postComment} from '../redux/ActionCreators';
 import * as Animatable from 'react-native-animatable';
 
-
 const mapStateToProps = state => {
     return{
         campsites : state.campsites,
@@ -29,6 +28,7 @@ function RenderCampsite(props) {
     const view = React.createRef();
 
     const recognizeDrag = ({dx}) => (dx < -200) ? true : false;
+    const recognizeComment = ({dx}) => (dx > 200) ? true : false;
 
     const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: () => true,
@@ -56,6 +56,8 @@ function RenderCampsite(props) {
                     ],
                     {cancelable: false}
                 );
+            }else if (recognizeComment(gestureState)){
+                props.onShowModal()
             }
             return true;
         }
@@ -170,7 +172,8 @@ class CampsiteInfo extends Component{
     
         return (
             <ScrollView>
-                <RenderCampsite campsite={campsite} 
+                <RenderCampsite 
+                    campsite={campsite} 
                     favorite={this.props.favorites.includes(campsiteId)}
                     markFavorite={( ) => this.markFavorite(campsiteId)}
                     onShowModal={() => this.toggleModal()}
