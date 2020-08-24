@@ -79,6 +79,7 @@ class Reservation extends Component{
         }
     }
        
+    
     render(){
         return(
             <Animatable.View animation='zoomIn' duration={2000} delay={1000}>
